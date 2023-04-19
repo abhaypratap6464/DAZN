@@ -1,30 +1,68 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:argType="http://schemas.android.com/tools"
-    android:id="@+id/flRoot"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:focusable="true"
-    android:keepScreenOn="true">
+    android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <com.google.android.exoplayer2.ui.StyledPlayerView
-        android:id="@+id/playerView"
+    <FrameLayout
+        android:id="@+id/flRoot"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
-        app:show_subtitle_button="true"
-        argType:fastforward_increment="15000"
-        argType:resize_mode="fixed_width"
-        argType:rewind_increment="15000"
-        argType:show_buffering="when_playing"
-        argType:show_fastforward_button="false"
-        argType:show_next_button="false"
-        argType:show_previous_button="false"
-        argType:show_rewind_button="false"
-        app:controller_layout_id="@layout/exo_player_control_view"
-        argType:show_subtitle_button="true"
-        argType:use_artwork="true"
-        argType:use_controller="true"
-        argType:use_sensor_rotation="true" />
+        android:layout_height="200dp"
+        android:focusable="true"
+        android:keepScreenOn="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
-</FrameLayout>
+        <com.google.android.exoplayer2.ui.StyledPlayerView
+            android:id="@+id/playerView"
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+            app:controller_layout_id="@layout/exo_player_control_view"
+            app:show_subtitle_button="true"
+            argType:fastforward_increment="15000"
+            argType:resize_mode="fixed_width"
+            argType:rewind_increment="15000"
+            argType:show_buffering="when_playing"
+            argType:show_fastforward_button="false"
+            argType:show_next_button="false"
+            argType:show_previous_button="false"
+            argType:show_rewind_button="false"
+            argType:show_subtitle_button="true"
+            argType:use_artwork="true"
+            argType:use_controller="true"
+            argType:use_sensor_rotation="true" />
+
+    </FrameLayout>
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvPauseCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="Pause Count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/flRoot" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvForwardCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Play Count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvPauseCount" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/tvBackwardCount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:text="Play Count"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvForwardCount" />
+</androidx.constraintlayout.widget.ConstraintLayout>

@@ -2,7 +2,6 @@ package com.example.dzan.ui
 
 import android.os.Bundle
 import android.widget.ImageButton
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dzan.databinding.ActivityMainBinding
 import com.google.android.exoplayer2.ExoPlayer
@@ -10,16 +9,19 @@ import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.source.dash.DashMediaSource
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
+import com.google.firebase.analytics.FirebaseAnalytics
 
 class MainActivity : AppCompatActivity(), Player.Listener {
 
     private lateinit var binding: ActivityMainBinding
+    private lateinit var firebaseAnalytics: FirebaseAnalytics
     private var exoPlayer: ExoPlayer? = null
     private var playbackPosition = 0L
     private var playWhenReady = true
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        firebaseAnalytics = FirebaseAnalytics.getInstance(this)
         setView()
         preparePlayer()
     }
@@ -47,10 +49,12 @@ class MainActivity : AppCompatActivity(), Player.Listener {
         exoPlayer?.addListener(this)
 
         findViewById<ImageButton>(com.google.android.exoplayer2.R.id.exo_pause).setOnClickListener {
+            firebaseAnalytics.logEvent("PauseBtn",null)
             exoPlayer?.pause()
         }
 
         findViewById<ImageButton>(com.google.android.exoplayer2.R.id.exo_play).setOnClickListener {
+            firebaseAnalytics.logEvent("PlayBtn",null)
             exoPlayer?.play()
         }
 
