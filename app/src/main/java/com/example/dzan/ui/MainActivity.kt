@@ -1,6 +1,7 @@
 package com.example.dzan.ui
 
 import android.os.Bundle
+import android.widget.ImageButton
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.dzan.databinding.ActivityMainBinding
@@ -9,7 +10,6 @@ import com.google.android.exoplayer2.MediaItem
 import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.source.dash.DashMediaSource
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
-
 
 class MainActivity : AppCompatActivity(), Player.Listener {
 
@@ -46,6 +46,15 @@ class MainActivity : AppCompatActivity(), Player.Listener {
         }
         exoPlayer?.addListener(this)
 
+        findViewById<ImageButton>(com.google.android.exoplayer2.R.id.exo_pause).setOnClickListener {
+            exoPlayer?.pause()
+        }
+
+        findViewById<ImageButton>(com.google.android.exoplayer2.R.id.exo_play).setOnClickListener {
+            exoPlayer?.play()
+        }
+
+
     }
 
     private fun releasePlayer() {
@@ -71,27 +80,8 @@ class MainActivity : AppCompatActivity(), Player.Listener {
         super.onDestroy()
         releasePlayer()
     }
-
-    override fun onIsPlayingChanged(isPlaying: Boolean) {
-        Toast.makeText(this, if (isPlaying) "Playing" else "Paused", Toast.LENGTH_LONG).show()
-
-    }
-
-    override fun onPlaybackStateChanged(playbackState: Int) {
-
-
-    }
-
-    override fun onSeekBackIncrementChanged(seekBackIncrementMs: Long) {
-        Toast.makeText(this, "backward", Toast.LENGTH_LONG).show()
-    }
-
-    override fun onSeekForwardIncrementChanged(seekForwardIncrementMs: Long) {
-        Toast.makeText(this, "forward", Toast.LENGTH_LONG).show()
-    }
-
     companion object {
         const val URL = "https://storage.googleapis.com/wvmedia/clear/vp9/tears/tears_uhd.mpd"
     }
-
 }
+

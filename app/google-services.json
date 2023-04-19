@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "183908057140",
+    "project_id": "dazn-63d82",
+    "storage_bucket": "dazn-63d82.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:183908057140:android:07584aa1f41cc3c29e0a61",
+        "android_client_info": {
+          "package_name": "com.example.dzan"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "183908057140-ql1g1e34dvr96ge5nmbpm1dt174n5abs.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.dzan",
+            "certificate_hash": "d09a6892bc05291f82056790c2a591e4a2376ed3"
+          }
+        },
+        {
+          "client_id": "183908057140-5vtob4rjcjp85mumd8o4bm6ovhbdug9r.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAQOUAwOtVtCQZli-fgJATCS92Fve75TRI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "183908057140-5vtob4rjcjp85mumd8o4bm6ovhbdug9r.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
