@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:app="http://schemas.android.com/apk/res-auto"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:argType="http://schemas.android.com/tools"
-    android:layout_height="match_parent"
     android:layout_width="match_parent"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    android:layout_height="match_parent">
 
     <FrameLayout
         android:id="@+id/flRoot"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:focusable="true"
         android:keepScreenOn="true"
         app:layout_constraintEnd_toEndOf="parent"
@@ -18,7 +18,7 @@
         <com.google.android.exoplayer2.ui.StyledPlayerView
             android:id="@+id/playerView"
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="@dimen/_300dp"
             app:controller_layout_id="@layout/exo_player_control_view"
             app:show_subtitle_button="true"
             argType:fastforward_increment="15000"
@@ -38,30 +38,22 @@
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvPauseCount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
-        android:text="Pause Count"
+        style="@style/TextView"
+        android:layout_marginTop="@dimen/_200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/flRoot" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvForwardCount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Play Count"
+        style="@style/TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvPauseCount" />
 
     <androidx.appcompat.widget.AppCompatTextView
         android:id="@+id/tvBackwardCount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:text="Play Count"
+        style="@style/TextView"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tvForwardCount" />
