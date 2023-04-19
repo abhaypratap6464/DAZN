@@ -39,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         rewBtn=findViewById(com.google.android.exoplayer2.R.id.exo_rew)
         binding.tvPauseCount.text = getString(R.string.pause_count,PAUSE_COUNT)
         binding.tvBackwardCount.text = getString(R.string.rewbtn_count, REWIND_COUNT)
-        binding.tvForwardCount.text = getString(R.string.pause_count, FORWARD_COUNT)
+        binding.tvForwardCount.text = getString(R.string.ffwdbtn_count, FORWARD_COUNT)
     }
 
     private fun initClickListeners() {
