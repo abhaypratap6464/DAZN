@@ -24,7 +24,7 @@
             argType:fastforward_increment="15000"
             argType:resize_mode="fixed_width"
             argType:rewind_increment="15000"
-            argType:show_buffering="when_playing"
+            argType:show_buffering="always"
             argType:show_fastforward_button="false"
             argType:show_next_button="false"
             argType:show_previous_button="false"
@@ -32,7 +32,16 @@
             argType:show_subtitle_button="true"
             argType:use_artwork="true"
             argType:use_controller="true"
-            argType:use_sensor_rotation="true" />
+            argType:use_sensor_rotation="true" >
+            <ProgressBar
+                android:id="@+id/progressBar"
+                android:indeterminateTint="#FF0000"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+        </com.google.android.exoplayer2.ui.StyledPlayerView>
 
     </FrameLayout>
 

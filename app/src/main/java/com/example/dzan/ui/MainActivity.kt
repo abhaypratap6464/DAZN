@@ -1,17 +1,20 @@
 package com.example.dzan.ui
 
 import android.os.Bundle
+import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.isVisible
 import com.example.dzan.R
 import com.example.dzan.databinding.ActivityMainBinding
 import com.google.android.exoplayer2.ExoPlayer
 import com.google.android.exoplayer2.MediaItem
+import com.google.android.exoplayer2.Player
 import com.google.android.exoplayer2.source.dash.DashMediaSource
 import com.google.android.exoplayer2.upstream.DefaultHttpDataSource
 import com.google.firebase.analytics.FirebaseAnalytics
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() , Player.Listener {
 
     private lateinit var binding: ActivityMainBinding
     private lateinit var firebaseAnalytics: FirebaseAnalytics
@@ -126,6 +129,12 @@ class MainActivity : AppCompatActivity() {
         releasePlayer()
     }
 
+    override fun onPlayerStateChanged(playWhenReady: Boolean, playbackState: Int) {
+        if (playbackState == Player.STATE_BUFFERING)
+            binding.progressBar.visibility = View.VISIBLE
+        else if (playbackState == Player.STATE_READY || playbackState == Player.STATE_ENDED)
+            binding.progressBar.visibility = View.INVISIBLE
+    }
 
     companion object {
         const val URL = "https://storage.googleapis.com/wvmedia/clear/vp9/tears/tears_uhd.mpd"
