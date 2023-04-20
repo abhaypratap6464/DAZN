@@ -4,7 +4,6 @@ import android.os.Bundle
 import android.view.View
 import android.widget.ImageButton
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.isVisible
 import com.example.dzan.R
 import com.example.dzan.databinding.ActivityMainBinding
 import com.google.android.exoplayer2.ExoPlayer
@@ -134,6 +133,10 @@ class MainActivity : AppCompatActivity() , Player.Listener {
             binding.progressBar.visibility = View.VISIBLE
         else if (playbackState == Player.STATE_READY || playbackState == Player.STATE_ENDED)
             binding.progressBar.visibility = View.INVISIBLE
+    }
+
+    override fun onSeekBackIncrementChanged(seekBackIncrementMs: Long) {
+        super.onSeekBackIncrementChanged(seekBackIncrementMs)
     }
 
     companion object {
